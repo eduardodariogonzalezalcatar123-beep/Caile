@@ -4,40 +4,310 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Caile</title>
+  <style>
+    :root {
+      --fondo: #0b1320;
+      --superficie: #14233a;
+      --borde: #1f6f8b;
+      --acento: #ffd400;
+      --destacado: #2ee6c5;
+      --info: #ffd700;
+      --texto: #eef4fb;
+      --texto-suave: #a9bdd6;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: var(--fondo);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+
+    .contenedor {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Barra de navegación */
+    nav {
+      background: var(--superficie);
+      border-bottom: 2px solid var(--borde);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav .contenedor {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 14px;
+      padding-bottom: 14px;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: var(--destacado);
+      text-decoration: none;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 24px;
+    }
+
+    nav a {
+      color: var(--texto);
+      text-decoration: none;
+    }
+
+    nav ul a:hover {
+      color: var(--acento);
+    }
+
+    /* Encabezado principal */
+    header {
+      background: linear-gradient(135deg, var(--superficie), var(--borde));
+      text-align: center;
+      padding: 48px 0 64px;
+    }
+
+    header img {
+      width: 100%;
+      max-width: 900px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-top: 32px;
+      color: var(--destacado);
+    }
+
+    header h2 {
+      font-size: 1.5rem;
+      font-weight: normal;
+      margin: 8px 0 32px;
+    }
+
+    /* Botón */
+    .boton {
+      display: inline-block;
+      background: var(--acento);
+      color: var(--fondo);
+      font-size: 1.1rem;
+      font-weight: bold;
+      padding: 14px 36px;
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(255, 122, 61, 0.45);
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .boton:hover {
+      background: var(--destacado);
+      transform: translateY(-3px);
+    }
+
+    /* Secciones */
+    section {
+      padding: 64px 0;
+    }
+
+    section h3 {
+      font-size: 2rem;
+      color: var(--destacado);
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .intro {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 1.15rem;
+      color: var(--texto-suave);
+    }
+
+    .por-que {
+      background: var(--superficie);
+    }
+
+    /* Tarjetas de beneficios */
+    .beneficios {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .tarjeta {
+      background: var(--fondo);
+      border: 1px solid var(--borde);
+      border-radius: 16px;
+      padding: 28px;
+      text-align: center;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .tarjeta:hover {
+      transform: translateY(-6px);
+      border-color: var(--acento);
+    }
+
+
+    .tarjeta h4 {
+      font-size: 1.2rem;
+      color: var(--acento);
+      margin: 0 0 8px;
+    }
+
+    .tarjeta p {
+      color: var(--texto-suave);
+    }
+
+    /* Llamado a la acción */
+    .llamado {
+      text-align: center;
+      background: linear-gradient(135deg, var(--borde), var(--superficie));
+    }
+
+    .llamado p {
+      font-size: 1.25rem;
+      margin-bottom: 28px;
+    }
+
+    /* Contacto */
+    .datos-contacto {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 32px;
+      list-style: none;
+    }
+
+    .datos-contacto li {
+      background: var(--superficie);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .datos-contacto strong {
+      display: block;
+      color: var(--info);
+      margin-bottom: 4px;
+    }
+
+    footer {
+      background: var(--superficie);
+      text-align: center;
+      padding: 20px 0;
+      color: var(--texto-suave);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      nav ul {
+        display: none;
+      }
+
+      header h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
 </head>
 <body>
+  <nav>
+    <div class="contenedor">
+      <a href="#" class="logo">Caile</a>
+      <ul>
+        <li><a href="#por-que">¿Por qué Caile?</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
+  </nav>
+
   <header>
-    <img src="img/banner.svg" alt="Banner de Caile: las fiestas cerca de ti" width="900">
-    <h1>Caile</h1>
-    <h2>¡Encuentra la fiesta más cercana, esta noche y siempre!</h2>
+    <div class="contenedor">
+      <img src="img/banner.svg" alt="Banner de Caile: las fiestas cerca de ti">
+      <h1>Caile</h1>
+      <h2>¡Encuentra la fiesta más cercana, esta noche y siempre!</h2>
+      <a href="#" class="boton">Comienza ahora</a>
+    </div>
   </header>
 
   <main>
     <section>
-      <p>
-        Caile es un sitio web que te muestra los puntos cercanos a ti donde está
-        ocurriendo o va a ocurrir una fiesta. Descubre qué pasa a tu alrededor,
-        mira qué eventos vienen pronto y decide a dónde ir en segundos.
-      </p>
+      <div class="contenedor">
+        <p class="intro">
+          Caile es un sitio web que te muestra los puntos cercanos a ti donde está
+          ocurriendo o va a ocurrir una fiesta. Descubre qué pasa a tu alrededor,
+          mira qué eventos vienen pronto y decide a dónde ir en segundos.
+        </p>
+      </div>
     </section>
 
-    <section>
-      <h3>¿Por qué usar Caile?</h3>
-      <p>
-        Muchas veces no sabes qué hay para hacer cerca de ti o te enteras de una
-        fiesta cuando ya terminó. Caile reúne en un solo lugar las fiestas que
-        están pasando y las que vienen, para que no te pierdas ninguna.
-      </p>
-      <ul>
-        <li><strong>Ahorra tiempo:</strong> ves al instante las fiestas cercanas sin buscar en varias redes sociales.</li>
-        <li><strong>Planea con anticipación:</strong> conoces las fiestas que van a ocurrir y organizas tu salida con tus amigos.</li>
-        <li><strong>Descubre lugares nuevos:</strong> encuentra eventos y sitios de tu zona que no conocías.</li>
-      </ul>
+    <section id="por-que" class="por-que">
+      <div class="contenedor">
+        <h3>¿Por qué usar Caile?</h3>
+        <p class="intro">
+          Muchas veces no sabes qué hay para hacer cerca de ti o te enteras de una
+          fiesta cuando ya terminó. Caile reúne en un solo lugar las fiestas que
+          están pasando y las que vienen, para que no te pierdas ninguna.
+        </p>
+
+        <div class="beneficios">
+          <div class="tarjeta">
+            <h4>Ahorra tiempo</h4>
+            <p>Ves al instante las fiestas cercanas sin buscar en varias redes sociales.</p>
+          </div>
+          <div class="tarjeta">
+            <h4>Planea con anticipación</h4>
+            <p>Conoces las fiestas que van a ocurrir y organizas tu salida con tus amigos.</p>
+          </div>
+          <div class="tarjeta">
+            <h4>Descubre lugares nuevos</h4>
+            <p>Encuentra eventos y sitios de tu zona que no conocías.</p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <p><strong>¿Listo para salir?</strong> Abre Caile, mira el mapa y únete a la próxima fiesta cerca de ti.</p>
+    <section class="llamado">
+      <div class="contenedor">
+        <p><strong>¿Listo para salir?</strong> Abre Caile, mira el mapa y únete a la próxima fiesta cerca de ti.</p>
+        <a href="#" class="boton">Conoce más</a>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <div class="contenedor">
+        <h3>Contacto</h3>
+        <p class="intro">¿Tienes dudas u organizas fiestas y quieres aparecer en Caile? Escríbenos.</p>
+        <ul class="datos-contacto">
+          <li><strong>Correo</strong> contacto@caile.example</li>
+          <li><strong>Teléfono</strong> +00 123 456 7890</li>
+          <li><strong>Dirección</strong> Av. de la Fiesta 123, Ciudad Ejemplo</li>
+          <li><strong>Redes sociales</strong> @caile.app</li>
+        </ul>
+      </div>
     </section>
   </main>
+
+  <footer>
+    <p>&copy; 2026 Caile. Todos los derechos reservados.</p>
+  </footer>
 </body>
 </html>
